@@ -36,13 +36,11 @@ class BrojSubscriber(Node):
 
     def listener_callback(self, msg):
         self.y = list(map(int, re.findall('\d+', msg.data)))
-        self.get_logger().info('I heard: "%s"' % msg.data)
     
     def timer_callback(self):
         msg = String()
         msg.data = 'Kvadrat broja je: %d' % self.y[0]**2
         self.publisher_.publish(msg)
-        self.get_logger().info('Publishing: "%s"' % msg.data)
 
 def main(args=None):
     rclpy.init(args=args)
