@@ -30,7 +30,6 @@ class BrojPublisher(Node):
         msg = String()
         msg.data = 'Broj je: %d' % self.i
         self.publisher_.publish(msg)
-        self.get_logger().info('Publishing: "%s"' % msg.data)
         self.i += 1
 
 
